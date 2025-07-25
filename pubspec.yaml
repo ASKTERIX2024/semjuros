@@ -78,6 +78,7 @@ flutter:
     - assets/images/Tutorial_7.png
     - assets/images/Tutorial_8.png
     - assets/icons/icon.png
+    - shorebird.yaml
 
 
 
