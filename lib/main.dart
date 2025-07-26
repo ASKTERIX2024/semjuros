@@ -791,15 +791,16 @@ class _HomeScreenState extends State<HomeScreen> {
       style: const TextStyle(color: Colors.black, fontSize: 20),
       textAlign: TextAlign.right,
       inputFormatters: [
-        FilteringTextInputFormatter.allow(RegExp(r'^\d*[.,]?\d{0,2}')
-        ),
+        controller == _parcelasController
+          ? FilteringTextInputFormatter.allow(RegExp(r'^\d+$'))
+          : FilteringTextInputFormatter.allow(RegExp(r'^\d*[.,]?\d{0,2}')),
       ],
       decoration: InputDecoration(
-        filled: true,
-        fillColor: Colors.white,
-        isDense: true,
-        contentPadding: const EdgeInsets.symmetric(vertical: 8, horizontal: 12),
-        border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
+      filled: true,
+      fillColor: Colors.white,
+      isDense: true,
+      contentPadding: const EdgeInsets.symmetric(vertical: 8, horizontal: 12),
+      border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
       ),
       onChanged: (value) {
         // Cancela o timer anterior se ainda estiver ativo
