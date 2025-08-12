@@ -469,9 +469,10 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   void _onpixChanged(String texto) {
-    _FormatarDecimal(_pixController);
+    //_FormatarDecimal(_pixController);
     _persistenteDica = false;
-     _calcularTaxa();
+    _calcularTaxa();
+
   }
 
   double _R(double valor, double tx) {
@@ -499,7 +500,7 @@ class _HomeScreenState extends State<HomeScreen> {
         for (int i = 0; i < parcelas; i++) {
           ganho = _R(ganho, taxrf);
         }
-        ganho = ganho / pow(taxrf, parcelas).toDouble();
+        //ganho = ganho / pow(taxrf, parcelas).toDouble();
 
         //ganho = pix * (pow(1+double.parse(_TxReferencialController.text.replaceAll(',','.')) / 100.0, parcelas/12)-1) - (parcelado - pix);
         pix_parcelamento = (ganho < 0) ? 'utilizando PIX. Com isso, o' : 'com parcelamento. Com isso, o';
