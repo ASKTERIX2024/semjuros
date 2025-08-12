@@ -292,6 +292,7 @@ class _HomeScreenState extends State<HomeScreen> {
   final _ValorParcelaFocus = FocusNode();
   String versaoApp = '';
   String buildApp = '';
+  double taxrf = 1.0;
   final _pixFocus = FocusNode();
   String adjetivo = 'recomendável';
   final _TxReferencialFocus = FocusNode();
@@ -309,9 +310,22 @@ class _HomeScreenState extends State<HomeScreen> {
     return texto.split(caractere).length - 1;
   }
 
+  String ajustarPontuacao(String texto) {
+    int posicaoUltimoPonto = texto.lastIndexOf('.');
+
+    // Verifica se o ponto está na antepenúltima posição
+    if (posicaoUltimoPonto == texto.length - 3) {
+      // Substitui apenas o último ponto por vírgula
+      texto = texto.substring(0, posicaoUltimoPonto) + ',' + texto.substring(posicaoUltimoPonto + 1);
+    }
+
+    return texto;
+  }
+
   double _converter(String texto) {
     // Remove pontos de milhar e troca vírgula por ponto decimal
-    final limpo = texto.replaceAll('.', '').replaceAll(',', '.');
+    final limpo1 = ajustarPontuacao(texto);
+    final limpo = limpo1.replaceAll('.', '').replaceAll(',', '.');
     return double.parse(limpo);
   }
 
@@ -459,6 +473,11 @@ class _HomeScreenState extends State<HomeScreen> {
     _persistenteDica = false;
      _calcularTaxa();
   }
+
+  double _R(double valor, double tx) {
+    double parcela = _converter(_ValorParcelaController.text);
+    return valor * tx - parcela;}
+
   void _calcularTaxa() {
     if (_pixController.text =='' || _parceladoController.text == '' || _ValorParcelaController.text =='' || _parcelasController.text == '') {
       setState(() {_taxaFormatada = '';});
@@ -474,7 +493,15 @@ class _HomeScreenState extends State<HomeScreen> {
         double taxa = 5;
         taxa = calcula_juros(pix, parcelado / parcelas, parcelas);
         adjetivo = 'recomendável';
-        ganho = pix * (pow(1+double.parse(_TxReferencialController.text.replaceAll(',','.')) / 100.0, parcelas/12)-1) - (parcelado - pix);
+        double taxrf_ano = double.parse(_TxReferencialController.text.replaceAll(',','.')) / 100.0;
+        double taxrf = (pow(1+taxrf_ano, 1/12)).toDouble();
+        ganho = pix;
+        for (int i = 0; i < parcelas; i++) {
+          ganho = _R(ganho, taxrf);
+        }
+        ganho = ganho / pow(taxrf, parcelas).toDouble();
+
+        //ganho = pix * (pow(1+double.parse(_TxReferencialController.text.replaceAll(',','.')) / 100.0, parcelas/12)-1) - (parcelado - pix);
         pix_parcelamento = (ganho < 0) ? 'utilizando PIX. Com isso, o' : 'com parcelamento. Com isso, o';
         if (ganho < 0.01 && ganho > -0.01) {pix_parcelamento = 'com qualquer meio, pois o'; adjetivo = 'indiferente';}
         if (_debounce?.isActive ?? false) _debounce!.cancel();
@@ -695,11 +722,11 @@ class _HomeScreenState extends State<HomeScreen> {
                         ), //row
                         Column(
                           children: [
-                            const SizedBox(height:12),
-                            const Text('Recomendação:',
-                                                     style: TextStyle(fontSize: 24, color: Colors.white, fontWeight: FontWeight.bold),
-                                                     textAlign: TextAlign.center,
-                            ),
+                            // const SizedBox(height:12),
+                            // const Text('Recomendação:',
+                            //                          style: TextStyle(fontSize: 24, color: Colors.white, fontWeight: FontWeight.bold),
+                            //                          textAlign: TextAlign.center,
+                            // ),
                             SizedBox(height: 12),
                             Text(''' Com base na taxa média de investimentos de Renda Fixa, é $adjetivo realizar a compra $pix_parcelamento ganho financeiro será de ${(ganho.abs().toStringAsFixed(2)).replaceAll('.',',')} reais.''',
                                 style: TextStyle(fontSize: 18, color: Colors.yellow, fontWeight: FontWeight.normal),
@@ -724,12 +751,23 @@ class _HomeScreenState extends State<HomeScreen> {
                                 )),
                               ],
                             ),
+                            SizedBox(
+                                width: 240,
+                                child:Align(
+                                    alignment: Alignment.topRight,
+                                    child: Text(
+                                      '${(((pow(1+double.parse(_TxReferencialController.text.replaceAll(',','.')) / 100.0,1/12)).toDouble() - 1) * 100).toStringAsFixed(2)}% ao mês',
+                                       style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
+                                       textAlign: TextAlign.left,
+                                    )
+                                ),
+                            ),
                           ]
                         )
                       ],
 
                       if (_taxaFormatada.isNotEmpty && _taxaFormatada != "alerta")
-                      const SizedBox(height: 25), // espaço extra abaixo do botão "Entenda"
+                      const SizedBox(height: 30), // espaço extra abaixo do botão "Entenda"
                       Text(
                         '© Abarei Tecnologia \nSem Juros? versão $versaoApp ($buildApp)',
                         style: TextStyle(
