@@ -24,20 +24,14 @@ workflows:
 
       - name: Inicializar keychain
         script: keychain initialize
-
-      - name: Restaurar certificado e perfil
-        script: |
-          # Restaurar certificado a partir do Base64
-          echo $P12_BASE64 | base64 --decode > /tmp/semjuroscert.p12
-          scripts:
-      
+           
       - name: Baixar e adicionar certificado
         script: |
            curl -L https://raw.githubusercontent.com/ASKTERIX2024/semjuros/main/ios/semjurosbuildios.p12 -o /tmp/semjurosbuildios.p12
            keychain add-certificates --certificate /tmp/semjurosbuildios.p12 --certificate-password raqVCujx
       
       - name: Baixar e instalar provisioning profile
-          script: |
+        script: |
             curl -L https://raw.githubusercontent.com/ASKTERIX2024/semjuros/main/ios/SemJurosBuildAlien.mobileprovision -o /tmp/SemJurosBuildAlien.mobileprovision
             mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
             cp /tmp/SemJurosBuildAlien.mobileprovision ~/Library/MobileDevice/Provisioning\ Profiles/
