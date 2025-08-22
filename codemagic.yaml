@@ -9,117 +9,7 @@ workflows:
       cocoapods: default
 
       vars:
-        CERT_PASSWORD: I74sbHRX
-        P12_BASE64: |
-          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
-   
-        PROVISIONING_PROFILE_BASE64: |
-          MIIwcQYJKoZIhvcNAQcCoIIwYjCCMF4CAQExCzAJBgUrDgMCGgUAMIIgfgYJKoZIhvcNAQcB
-          oIIgbwSCIGs8P3htbCB2ZXJzaW9uPSIxLjAiIGVuY29kaW5nPSJVVEYtOCI/Pgo8IURPQ1RZ
-          UEUgcGxpc3QgUFVCTElDICItLy9BcHBsZS8vRFREIFBMSVNUIDEuMC8vRU4iICJodHRwOi8v
-          d3d3LmFwcGxlLmNvbS9EVERzL1Byb3BlcnR5TGlzdC0xLjAuZHRkIj4KPHBsaXN0IHZlcnNp
-          b249IjEuMCI+CjxkaWN0PgoJPGtleT5BcHBJRE5hbWU8L2tleT4KCTxzdHJpbmc+QWJhcmVp
-          VGVjbm9sb2dpYTwvc3RyaW5nPgoJPGtleT5BcHBsaWNhdGlvbklkZW50aWZpZXJQcmVmaXg8
-          L2tleT4KCTxhcnJheT4KCTxzdHJpbmc+VjQyRjlYVjZGVjwvc3RyaW5nPgoJPC9hcnJheT4K
-          CTxrZXk+Q3JlYXRpb25EYXRlPC9rZXk+Cgk8ZGF0ZT4yMDI1LTA4LTAyVDAyOjM4OjMzWjwv
-          ZGF0ZT4KCTxrZXk+UGxhdGZvcm08L2tleT4KCTxhcnJheT4KCQk8c3RyaW5nPmlPUzwvc3Ry
-          aW5nPgoJCTxzdHJpbmc+eHJPUzwvc3RyaW5nPgoJCTxzdHJpbmc+dmlzaW9uT1M8L3N0cmlu
-          Zz4KCTwvYXJyYXk+Cgk8a2V5PklzWGNvZGVNYW5hZ2VkPC9rZXk+Cgk8ZmFsc2UvPgoJPGtl
-          eT5EZXZlbG9wZXJDZXJ0aWZpY2F0ZXM8L2tleT4KCTxhcnJheT4KCQk8ZGF0YT5NSUlGMFRD
-          Q0JMbWdBd0lCQWdJUWFyb1F4aTdhcVhVanRwbWVkbHFtdGpBTkJna3Foa2lHOXcwQkFRc0ZB
-          REIxTVVRd1FnWURWUVFERER0QmNIQnNaU0JYYjNKc1pIZHBaR1VnUkdWMlpXeHZjR1Z5SUZK
-          bGJHRjBhVzl1Y3lCRFpYSjBhV1pwWTJGMGFXOXVJRUYxZEdodmNtbDBlVEVMTUFrR0ExVUVD
-          VmpReVJqbFlWalpHVmpFYU1CZ0dBMVVFQ2d3UlFVeENSVkpVVHlCTFRFbEhSVkpOUVU0eEN6
-          QUpCZ05WQkFZVEFsVlRNSUlCSWpBTkJna3Foa2lHOXcwQkFRRUZBQU9DQVE4QU1JSUJDZ0tD
-          QVFFQWthUDVmODgvMDBVbE41ZFg1RGZ4SWk5T2gzOFd2a2VnOG5lUXk5SFlxeUxoMGhlZlVK
-          anhvZHU1VXdKZitLYlhIM3JmRlBHQTZJQzBHQU1pcWtyR0t4WWtMUDlMN1hNVEhKZ0VxcDU1
-          YmcvQmpzN3RpTGk4RmUva05QbFZMOGpyNVpKaW9TZnI0NUxUTGExclpoZkVpNXRVekF5cFJC
-          RlFUbTJoSWViZkdnR0t2Q2hsTnVyRExkU2NrQzQwS3ZqMm9tMFdDaTZIZmUvbElQN21JK1VY
-          ajdrWTlXTVh5YWpkM3ltRDhsYmZ3RHBzUTg0UlhNUWlwZGtnRnRIRjhpaUNkY0dneDZaVHBv
-          Zk0zM2RoZDlOeVFlNVVUemR0YWdNODFCMmljazZ5S1pNWGU1OFFLaHRCRDY3cXBMeHp5V2ps
-          ZEw5b0VTM25tTG1NRE5RU3R1VzJtUUlEQVFBQm80SUNPRENDQWpRd0RBWURWUjBUQVFIL0JB
-          SXdBREFmQmdOVkhTTUVHREFXZ0JRSi9zQVZrUG12WkFxU0Vya21LR01NbCt5bnNqQndCZ2dy
-          QmdFRkJRY0JBUVJrTUdJd0xRWUlLd1lCQlFVSE1BS0dJV2gwZEhBNkx5OWpaWEowY3k1aGNI
-          QnNaUzVqYjIwdmQzZGtjbWN6TG1SbGNqQXhCZ2dyQmdFRkJRY3dBWVlsYUhSMGNEb3ZMMjlq
-          YzNBdVlYQndiR1V1WTI5dEwyOWpjM0F3TXkxM2QyUnlaek13TlRDQ0FSNEdBMVVkSUFTQ0FS
-          VXdnZ0VSTUlJQkRRWUpLb1pJaHZkalpBVUJNSUgvTUlIREJnZ3JCZ0VGQlFjQ0FqQ0J0Z3lC
-          czFKbGJHbGhibU5sSUc5dUlIUm9hWE1nWTJWeWRHbG1hV05oZEdVZ1lua2dZVzU1SUhCaGNu
-          UjVJR0Z6YzNWdFpYTWdZV05qWlhCMFlXNWpaU0J2WmlCMGFHVWdkR2hsYmlCaGNIQnNhV05o
-          WW14bElITjBZVzVrWVhKa0lIUmxjbTF6SUdGdVpDQmpiMjVrYVhScGIyNXpJRzltSUhWelpT
-          d2dZMlZ5ZEdsbWFXTmhkR1VnY0c5c2FXTjVJR0Z1WkNCalpYSjBhV1pwWTJGMGFXOXVJSEJ5
-          WVdOMGFXTmxJSE4wWVhSbGJXVnVkSE11TURjR0NDc0dBUVVGQndJQkZpdG9kSFJ3Y3pvdkwz
-          ZDNkeTVoY0hCc1pTNWpiMjB2WTJWeWRHbG1hV05oZEdWaGRYUm9iM0pwZEhrdk1CWUdBMVVk
-          SlFFQi93UU1NQW9HQ0NzR0FRVUZCd01ETUIwR0ExVWREZ1FXQkJRTFNKR09XZUJzNzZkdUlG
-          a0FsZmZHNUY4VHRqQU9CZ05WSFE4QkFmOEVCQU1DQjRBd0V3WUtLb1pJaHZkalpBWUJCd0VC
-          L3dRQ0JRQXdFd1lLS29aSWh2ZGpaQVlCQkFFQi93UUNCUUF3RFFZSktvWklodmNOQVFFTEJR
-          QURnZ0VCQUJhNmczVUMxbUl0cXdzVUdDWElPL3pvYm1FWjk0TUFOYjlMaTdWUVNBSzJGYlAr
-          UlZQWitDWmxGLyswdE1PNlc4WXVxWE1TZjBrM3hoSFRNTU1QUFFEd3QzVU9rdS92K0VlMjI4
-          a3dkU0RqbVhENzJHc2R3V3g5aGJxcnIvWmJkWTloZlhhU09ReDJxSkF1NVg5MEJWWDdBZTZm
-          cXEwQ0hPZEdCS2tuc1ZaWCtPVy9kRFI5UFBNSENtaS9zRzAyYzB4ZGRlZmhNWVdXUld6Mkwz
-          REs3T0ROZ3N3clVGQmZTTGlsTG03aUM3ajNFZ1FyUmZhc1Azd1NwTG5aeHhMV2xTVVpqVVIy
-          c2x5dUhrQ1pXSEtvdFlxTHI5d1Y3Mno0YjdEcjYxbThJQi9xY29EVm45T2cvb3NpbVljakpY
-          VWZSN1hoWUZOUUZLVzBkcVZ5eklyck1nWHZJcz08L2RhdGE+Cgk8L2FycmF5PgoKCTxrZXk+
-          REVSLUVuY29kZWQtUHJvZmlsZTwva2V5PgoJPGRhdGE+TUlJTmV3WUpLb1pJaHZjTkFRY0Nv
-          SUlOYkRDQ0RXZ0NBUUV4RHpBTkJnbGdoa2dCWlFNRUFnRUZBRENDQXpZR0NTcUdTSWIzRFFF
-          SEFhQ0NBeWNFZ2dNak1ZSURIekFNREFkV1pYSnphVzl1QWdFQk1BME1DRkJRVVVOb1pXTnJB
-          UUgvTUJBTUNsUnBiV1ZVYjB4cGRtVUNBZ0ZzTUJNTURrbHpXR052WkdWTllXNWhaMlZrQVFF
-          QU1CVU1CRTVoYldVTURWTmxiVXAxY205elFuVnBiR1F3SFF3SVZHVmhiVTVoYldVTUVVRk1R
-          a1ZTVkU4Z1MweEpSMFZTVFVGT01CME1DVUZ3Y0VsRVRtRnRaUXdRUVdKaGNtVnBWR1ZqYm05
-          c2IyZHBZVEFkREF4RGNtVmhkR2x2YmtSaGRHVVhEVEkxTURnd01qQXlNemd6TTFvd0hnd09W
-          R1ZoYlVsa1pXNTBhV1pwWlhJd0RBd0tWalF5UmpsWVZqWkdWakFmREE1RmVIQnBjbUYwYVc5
-          dVJHRjBaUmNOTWpZd09EQXlNREl5TXpNeVdqQWdEQmRRY205bWFXeGxSR2x6ZEhKcFluVjBh
-          Vzl1Vkhsd1pRd0ZRVVJJVDBNd0lRd0lVR3hoZEdadmNtMHdGUXdEYVU5VERBUjRjazlUREFo
-          MmFYTnBiMjVQVXpBckRCdEJjSEJzYVdOaGRHbHZia2xrWlc1MGFXWnBaWEpRY21WbWFYZ3dE
-          TUFNd01EQTRNVEF4TFRBd01FTXpOVGxETVVVNE56QXdNVVV3T3d3VlJHVjJaV3h2Y0dWeVEy
-          VnlkR2xtYVdOaGRHVnpNQ0lFSUEzUXJ4SUhnd0ZkMlFENHVqOFZBNjV3aGdaUlkxUGJjZTFK
-          b05uYnYzanpNSUlCRWd3TVJXNTBhWFJzWlcxbGJuUnpjSUlCQUFJQkFiQ0IrakE0REJaaGNI
-          QnNhV05oZEdsdmJpMXBaR1Z1ZEdsbWFXVnlEQjVXTkRKR09WaFdOa1pXTG1OdmJTNWhZbUZ5
-          WldrdWMyVnRhblZ5YjNNd093dzJZMjl0TG1Gd2NHeGxMbVJsZG1Wc2IzQmxjaTVyWlhKdVpX
-          d3VaWGgwWlc1a1pXUXRkbWx5ZEhWaGJDMWhaR1J5WlhOemFXNW5BUUgvTURFTUkyTnZiUzVo
-          Y0hCc1pTNWtaWFpsYkc5d1pYSXVkR1ZoYlMxcFpHVnVkR2xtYVdWeURBcFdOREpHT1ZoV05r
-          WldNQk1NRG1kbGRDMTBZWE5yTFdGc2JHOTNBUUVBTURrTUZtdGxlV05vWVdsdUxXRmpZMlZ6
-          Y3kxbmNtOTFjSE13SHd3TVZqUXlSamxZVmpaR1ZpNHFEQTlqYjIwdVlYQndiR1V1ZEc5clpX
-          NmdnZ2c4TUlJQ1F6Q0NBY21nQXdJQkFnSUlMY1g4aU5MRlM1VXdDZ1lJS29aSXpqMEVBd013
-          WnpFYk1Ca0dBMVVFQXd3U1FYQndiR1VnVW05dmRDQkRRU0F0SUVjek1TWXdKQVlEVlFRLERB
-          MUJjSEJzWlNCRFpYSjBhV1pwWTJGMGFXOXVJRUYxZEdodmNtbDBlVEVUTUJFR0ExVUVDZ3dL
-          UVhCd2JHVWdTVzVqTGpFTE1Ba0dBMVVFQmhNQ1ZWTUNDQmVBcURSbVpPckxNQTBHQ1dDR1NB
-          RmxBd1FDQVFVQW9JSHBNQmdHQ1NxR1NJYjNEUUVKQXpFTEJna3Foa2lHOXcwQkJ3RXdIQVlK
-          S29aSWh2Y05BUWtGTVE4WERUSTFNRGd3TWpBeU16Z3pNMW93S2dZSktvWklodmNOQVFrME1S
-          MHdHekFOQmdsZ2hrZ0JaUU1FQWdFRkFLRUtCZ2dxaGtqT1BRUURBakF2QmdrcWhraUc5dzBC
-          Q1FReElnUWdWQzBqZHE3ODdWL3pXbFRadWdIc3g4YkluT0EzangvTTVuZFA4aVM3VFhnd1Vn
-          WUpLb1pJaHZjTkFRa1BNVVV3UXpBS0JnZ3Foa2lHOXcwREJ6QU9CZ2dxaGtpRzl3MERBZ0lD
-          QUlBd0RRWUlLb1pJaHZjTkF3SUNBVUF3QndZRkt3NERBZ2N3RFFZSUtvWklodmNOQXdJQ0FT
-          gd0RRWUlLb1pJaHZjTkF3SUlCVlUxUUlHQUdqdXdUcnJXRXVubEhDUkNIRHBYMXNvcTJSMHh2
-          RG1nWEZaU3gweEJVOU5xOEJuOTZyc05YeWwzZ2ROZWhNR0J6U3hpRUlxbTJQSlA5cz0=
+        
         XCODE_WORKSPACE: "Runner"
         XCODE_SCHEME: "Runner"
         BUNDLE_ID: "com.abarei.semjuros"
@@ -139,12 +29,17 @@ workflows:
         script: |
           # Restaurar certificado a partir do Base64
           echo $P12_BASE64 | base64 --decode > /tmp/semjuroscert.p12
-          keychain add-certificates --certificate /tmp/semjuroscert.p12 --certificate-password $CERT_PASSWORD
-
-          # Restaurar perfil de provisionamento
-          echo $PROVISIONING_PROFILE_BASE64 | base64 --decode > /tmp/SemJurosBuild.mobileprovision
-          mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
-          cp /tmp/SemJurosBuild.mobileprovision ~/Library/MobileDevice/Provisioning\ Profiles/
+          scripts:
+      - name: Baixar e adicionar certificado
+         script: |
+           curl -L https://raw.githubusercontent.com/ASKTERIX2024/semjuros/main/ios/semjuroscert.p12 -o /tmp/semjuroscert.p12
+           keychain add-certificates --certificate /tmp/semjuroscert.p12 --certificate-password raqVCujx
+      
+      - name: Baixar e instalar provisioning profile
+          script: |
+            curl -L https://raw.githubusercontent.com/ASKTERIX2024/semjuros/main/ios/SemJurosBuild.mobileprovision -o /tmp/SemJurosBuild.mobileprovision
+            mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
+            cp /tmp/SemJurosBuild.mobileprovision ~/Library/MobileDevice/Provisioning\ Profiles/
    
       - name: Ajustar plataforma iOS e instalar CocoaPods
         script: |
