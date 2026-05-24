@@ -7,6 +7,7 @@ import 'dart:async';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:flutter/services.dart';
+import 'package:audioplayers/audioplayers.dart';
 
 
 class AppGlobal {
@@ -303,6 +304,9 @@ class _HomeScreenState extends State<HomeScreen> {
   Timer? _debounce;
   bool _taxaCalculada = false;
   bool _persistenteDica = true;
+  final player = AudioPlayer();
+  bool _som_ativo = true;
+
 
   String _taxaFormatada = '';
 
@@ -506,7 +510,7 @@ class _HomeScreenState extends State<HomeScreen> {
         pix_parcelamento = (ganho < 0) ? 'utilizando PIX. Com isso, o' : 'com parcelamento. Com isso, o';
         if (ganho < 0.01 && ganho > -0.01) {pix_parcelamento = 'com qualquer meio, pois o'; adjetivo = 'indiferente';}
         if (_debounce?.isActive ?? false) _debounce!.cancel();
-        _debounce = Timer(const Duration(milliseconds: 500), () {
+        _debounce = Timer(const Duration(milliseconds: 1000), () {
           FocusScope.of(context).unfocus();
         });
         _persistenteDica = false;
@@ -518,6 +522,7 @@ class _HomeScreenState extends State<HomeScreen> {
           });
         }
         if (_taxaFormatada == "não convergiu") return;
+        if (_som_ativo) {player.play(AssetSource('audio/Kaching.mp3'));}
         setState(() {
           _taxaFormatada = '${(taxa * 100).toStringAsFixed(2).replaceAll('.',',')}%';
         });
@@ -571,7 +576,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween, // Garante espaço entre os itens
                         crossAxisAlignment: CrossAxisAlignment.center,     // Alinha verticalmente no mesmo nível
                         children: [
-                          const Text(
+                         const Text(
                             'Sem Juros?',
                             style: TextStyle(
                               fontSize: 30,
@@ -580,12 +585,24 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
                             textAlign: TextAlign.left,
                           ),
+
                           IconButton(
-                            icon: Icon(Icons.delete, color: Colors.orange),
-                            onPressed: _limparCampos,
-                            tooltip: 'Limpar campos',
+                            icon: Icon(
+                              _som_ativo ? Icons.volume_up : Icons.volume_off,
+                              color: Colors.orange,
+                            ),
+                            onPressed: () {
+                              setState(() {
+                                _som_ativo = !_som_ativo; // troca o estado
+                              });
+                            },
                           ),
                           IconButton(
+                           icon: Icon(Icons.delete, color: Colors.orange),
+                              onPressed: _limparCampos,
+                              tooltip: 'Limpar campos',
+                            ),
+                           IconButton(
                             icon: Icon(Icons.info_outline, color: Colors.white, size: 40),
                             tooltip: 'Explicação',
                             onPressed: () {
@@ -594,7 +611,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 MaterialPageRoute(builder: (context) => TutorialScreen()),
                               );
                             },
-                          ),
+                         ),
                         ],
                       ),
                       SizedBox(height: 8),
@@ -643,6 +660,21 @@ class _HomeScreenState extends State<HomeScreen> {
                             ],
                           ),
 
+
+                          const SizedBox(height: 8),
+                          Row(
+                            children: [
+                              const SizedBox(
+                                width: 200,
+                                child: Text(
+                                  'Num. parcelas:',
+                                  style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
+                                ),
+                              ),
+                              Expanded(child: _buildCampoSemRotulo(_parcelasController, _parcelasFocus, onChanged: _onParcelasChanged,
+                              )),
+                            ],
+                          ),
                           const SizedBox(height: 8),
                           Row(
                             crossAxisAlignment: CrossAxisAlignment.center,     // Alinha verticalmente no mesmo nível
@@ -667,21 +699,6 @@ class _HomeScreenState extends State<HomeScreen> {
                               SizedBox(height: 12), // espaço entre a legenda e o campo
                               Expanded(child: _buildCampoSemRotulo(_ValorParcelaController, _ValorParcelaFocus,onChanged: _onValorParcelaChanged)),
 
-                            ],
-                          ),
-
-                          const SizedBox(height: 8),
-                          Row(
-                            children: [
-                              const SizedBox(
-                                width: 200,
-                                child: Text(
-                                  'Parcelas:',
-                                  style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
-                                ),
-                              ),
-                              Expanded(child: _buildCampoSemRotulo(_parcelasController, _parcelasFocus, onChanged: _onParcelasChanged,
-                              )),
                             ],
                           ),
                         ],
